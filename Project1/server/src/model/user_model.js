@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
 
-const userSchema = new mongoose.Schema({
+export const userSchema = new mongoose.Schema({
     profileImg: { type: Object },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
@@ -41,4 +41,4 @@ const userSchema = new mongoose.Schema({
 )
 
 
-export const User_model = mongoose.model("user", userSchema);
+export const user_schema = mongoose.model("user", userSchema);

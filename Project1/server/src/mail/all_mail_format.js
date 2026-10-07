@@ -22,6 +22,16 @@ export const user_otp_verification = async (name, email, otp) => {
             subject: "Hello",
             text: "Hello world?",
             html: `
+             <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
             <div style="margin:0;padding:40px 20px;background:#f3f4f6;font-family:Arial,sans-serif;">
         <div
             style="max-width:500px;margin:auto;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #d1d5db;">
@@ -46,6 +56,8 @@ export const user_otp_verification = async (name, email, otp) => {
             </div>
         </div>
     </div>
+    </body>
+    </html>
             `,
         });
 
@@ -65,6 +77,16 @@ export const admin_login_otp_verification = async (name, email, otp) => {
             subject: "Admin Login - OTP Verification",
             text: `Hello ${name}, your admin login OTP is ${otp}. This OTP will expire in 5 minutes.`,
             html: `
+             <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
                 <div style="margin:0;padding:40px 20px;background:#f3f4f6;font-family:Arial,sans-serif;">
                     <div style="max-width:500px;margin:auto;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #d1d5db;">
                         
@@ -98,13 +120,15 @@ export const admin_login_otp_verification = async (name, email, otp) => {
 
                     </div>
                 </div>
+                </body>
+                </html>
             `,
         });
 
         console.log("Message sent: %s", info.messageId);
         console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 
-    } 
+    }
     catch (err) {
         console.error(err.message);
     }
@@ -127,46 +151,62 @@ export const user_delete_account = async (name, email, otp) => {
             subject: "Delete Account - OTP Verification",
             text: `Hello ${name}, your OTP for deleting your account is ${otp}. This OTP will expire in 5 minutes.`,
             html: `
-                <div style="margin:0;padding:40px 20px;background:#f3f4f6;font-family:Arial,sans-serif;">
-                    <div style="max-width:500px;margin:auto;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #d1d5db;">
-                        
-                        <div style="background:#0b1f3a;padding:25px;text-align:center;color:#ffffff;">
-                            <h1 style="margin:0;font-size:28px;">Delete Account</h1>
-                        </div>
+                <!DOCTYPE html>
+<html lang="en">
 
-                        <div style="padding:30px;color:#111827;">
-                            <h2 style="margin-top:0;color:#0b1f3a;">Hello ${name},</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-                            <p style="font-size:16px;line-height:1.6;color:#4b5563;">
-                                We received a request to delete your account. Please use the OTP below to confirm your account deletion.
-                            </p>
+<body>
+    <div style="margin:0;padding:40px 20px;background:#f3f4f6;font-family:Arial,sans-serif;">
+        <div
+            style="max-width:500px;margin:auto;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #d1d5db;">
 
-                            <div style="margin:25px 0;padding:18px;text-align:center;background:#f3f4f6;border:2px dashed #0b1f3a;border-radius:8px;">
-                                <span style="font-size:32px;font-weight:bold;letter-spacing:8px;color:#0b1f3a;">${otp}</span>
-                            </div>
+            <div style="background:#0b1f3a;padding:25px;text-align:center;color:#ffffff;">
+                <h1 style="margin:0;font-size:28px;">Delete Account</h1>
+            </div>
 
-                            <p style="font-size:14px;color:#6b7280;text-align:center;">
-                                This OTP will expire in <strong style="color:#111827;">5 minutes</strong>.
-                            </p>
+            <div style="padding:30px;color:#111827;">
+                <h2 style="margin-top:0;color:#0b1f3a;">Hello ${name},</h2>
 
-                            <p style="font-size:14px;color:#6b7280;line-height:1.5;">
-                                If you did not request to delete your account, please ignore this email.
-                            </p>
-                        </div>
+                <p style="font-size:16px;line-height:1.6;color:#4b5563;">
+                    We received a request to delete your account. Please use the OTP below to confirm your account
+                    deletion.
+                </p>
 
-                        <div style="background:#111827;padding:18px;text-align:center;color:#ffffff;font-size:13px;">
-                            © 2026 Your Company. All rights reserved.
-                        </div>
-
-                    </div>
+                <div
+                    style="margin:25px 0;padding:18px;text-align:center;background:#f3f4f6;border:2px dashed #0b1f3a;border-radius:8px;">
+                    <span style="font-size:32px;font-weight:bold;letter-spacing:8px;color:#0b1f3a;">${otp}</span>
                 </div>
-            `,
+
+                <p style="font-size:14px;color:#6b7280;text-align:center;">
+                    This OTP will expire in <strong style="color:#111827;">5 minutes</strong>.
+                </p>
+
+                <p style="font-size:14px;color:#6b7280;line-height:1.5;">
+                    If you did not request to delete your account, please ignore this email.
+                </p>
+            </div>
+
+            <div style="background:#111827;padding:18px;text-align:center;color:#ffffff;font-size:13px;">
+                © 2026 Your Company. All rights reserved.
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html> 
+                `,
         });
 
         console.log("Message sent: %s", info.messageId);
         console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 
-    } 
+    }
     catch (err) {
         console.error(err.message);
     }

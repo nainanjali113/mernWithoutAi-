@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import sharp from 'sharp';
 import fs from 'fs/promises';
 
-dotenv.config();
+dotenv.config({quiet:true});
 
 cloudinary.config({
     cloud_name: process.env.Cloud_name,
