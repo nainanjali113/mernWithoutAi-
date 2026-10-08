@@ -1,15 +1,48 @@
 import { errorhandling } from '../error/all_error.js'
 import { user_model } from '../model/user_model.js'
+import jsonwebtoken from 'jsonwebtoken'
 
 export const create_user = async (req, res) => {
     try {
         const data = req.body
-        const { firstName, lastName, gender, email, password  } = data
+        const { firstName, lastName, gender, email, password } = data
 
         // console.log(data);
 
         const Create_user = await user_model.create(data)
         res.status(200).send({ status: true, success: true, data: Create_user })
+    }
+    catch (err) { errorhandling(err, res) }
+}
+
+
+export const verify_otp = async (req, res) => {
+    try {
+
+    }
+    catch (err) { errorhandling(err, res) }
+}
+
+
+export const resend_otp = async (req, res) => {
+    try {
+
+    }
+    catch (err) { errorhandling(err, res) }
+}
+
+
+export const login = async (req, res) => {
+    try {
+
+    }
+    catch (err) { errorhandling(err, res) }
+}
+
+
+export const update_profile = async (req, res) => {
+    try {
+
     }
     catch (err) { errorhandling(err, res) }
 }
