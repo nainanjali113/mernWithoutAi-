@@ -5,9 +5,9 @@ export const userSchema = new mongoose.Schema({
     profileImg: { type: Object },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    gender: { type: String, enum: ['male', 'female', 'other'], required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    gender: { type: String, enum: ['male', 'female', 'other'], required: true },
     address: [{
         state: { type: String, required: true },
         city: { type: String, required: true },
@@ -41,4 +41,4 @@ export const userSchema = new mongoose.Schema({
 )
 
 
-export const user_schema = mongoose.model("user", userSchema);
+export const user_model = mongoose.model("user", userSchema);
