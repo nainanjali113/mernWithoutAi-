@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 import { routes } from './src/routes/mainRouter.js'
 import { rateLimit } from 'express-rate-limit'
 
-dotenv.config({quiet:true})
+dotenv.config({ quiet: true })
 
 const app = express()
 const port = 2020
